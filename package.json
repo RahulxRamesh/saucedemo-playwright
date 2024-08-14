@@ -1,0 +1,22 @@
+{
+  "name": "saucedemo-playwright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RahulxRamesh/saucedemo-playwright.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RahulxRamesh/saucedemo-playwright/issues"
+  },
+  "homepage": "https://github.com/RahulxRamesh/saucedemo-playwright#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.46.0",
+    "@types/node": "^22.3.0"
+  }
+}
