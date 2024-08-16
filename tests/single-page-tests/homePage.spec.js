@@ -1,6 +1,7 @@
 const { test, expect } = require('@playwright/test');
 const loginPage = require('../../pages/loginPage');
 const homePage = require('../../pages/homePage');
+const testData = require('../../data/testData.json')
 
 test.describe('SauceDemo - Login Page', () => {
 
@@ -44,6 +45,24 @@ test.describe('SauceDemo - Login Page', () => {
       });
 
   });
+
+  test('validating single product details - Sauce Labs Backpack', async ({page}) => {
+
+    await test.step('product image', async () => {
+      await expect(page.locator('[data-test="inventory-item-sauce-labs-backpack-img"]')).toBeVisible()
+    });
+    await test.step('product name', async () => {
+      await expect(page.locator('[data-test="inventory-item-name"]').nth(0)).toContainText("Sauce Labs Backpack")
+    });
+    await test.step('product description', async () => {
+      await expect(page.locator('[data-test="inventory-item-desc"]').nth(0)).toContainText("carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.")
+    });
+    await test.step('product price', async () => {
+      await expect(page.locator('[data-test="inventory-item-price"]').nth(0)).toContainText(testData.backpack_price)
+    });
+
+  });
+
 
   test('validating homepage assets - functionality', async ({page}) => {
     await test.step('Menu - All Items returns to homepage functionality - one level deep into item view', async () => {

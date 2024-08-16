@@ -4,10 +4,16 @@ class cartPage{
         this.page = page;
     }
 
-// Checkout Cart
-// On the Final Page, make sure the Names and Postal code is entered successfully
-// Taxes is calculated (No need to bother percentages)
-// Finish up the process
+    async clickOn(locator){
+        await this.page.click(`.${locator}`)
+    }
+
+    async fillCheckoutInfo(firstName, lastName, zipCode){
+        await this.page.fill("#first-name", firstName);
+        await this.page.fill("#last-name", lastName);
+        await this.page.fill("#postal-code", zipCode);
+        await this.page.click("#continue");
+    }
 
 }
 

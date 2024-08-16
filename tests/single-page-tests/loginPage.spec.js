@@ -1,5 +1,6 @@
 const { test, expect } = require('@playwright/test');
 const loginPage = require('../../pages/loginPage');
+const testData = require('../../data/testData.json')
 
 test.describe('SauceDemo - Login Page', () => {
 
@@ -20,6 +21,11 @@ test.describe('SauceDemo - Login Page', () => {
       test.setTimeout(10000);
       await LoginPage.login('performance_glitch_user', 'secret_sauce')
       await expect(page.locator('[id="react-burger-menu-btn"]')).toBeVisible()
+    });
+
+    test('login failure to saucedemo - locked out user', async ({ page }) => {
+      await LoginPage.login('locked_out_user', 'secret_sauce')
+      await expect(page.locator('[data-test="error"]')).toContainText(testData.locked_out_user_error); 
     });
 
     test('login failure to saucedemo - password failure', async ({ page }) => {
