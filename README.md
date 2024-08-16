@@ -11,7 +11,7 @@
 - npm run test
 - npm run test:chrome
 
-    # View run results - basic HTML reporter
+    ### View run results - basic HTML reporter
     - npm run reports
 
 ## Base playwright config & "CI" playwright.yml
