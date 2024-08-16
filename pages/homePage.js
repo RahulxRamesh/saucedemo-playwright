@@ -6,15 +6,18 @@ class homePage{
 
 //a few positive, negative, edge cases for each page
 
-// Header:
-// Header contains the hamburger menu, Logo and Cart
 // Inventory List:
 // Products: The main content area displays a list of products available for purchase.
 // Product Image: Each product has an image.
 // Product Name: The name of the product is displayed.
 // Product Description: Short description or specifications.
 // Price: The price of each product.
+
+
 // Add to Cart Button: A button for adding the product to the shopping cart.
+async addToCart(product){
+    await this.page.click(`#add-to-cart-${product}`)
+}
 
 // Sorting:
 // Dropdown Menu: A dropdown to sort products by different criteria such as price or name.
