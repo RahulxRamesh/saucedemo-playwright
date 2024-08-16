@@ -24,6 +24,7 @@
 ## Observations
 - for the standard_user, there is no validation on minimum cart quantity or cost, we can at minimum checkout no items at no cost
 - for the standard_user, there is no validation on alphanumeric etc. for the checkout, can use words in the zipcode, and #'s for the first and last name
-- unsure what the "Logo" in the header was from the instructions, is it the "Swag Labs" text in the middle?
+- yet to reproduce "Epic sadface: You can only access '/inventory-item.html' when you are logged in" (maybe by hitting about, doing a wait, attempting to return to prev page)
+- the dropdown arrow on the product filter dropdown modifies the cursor but isnt actually interactable 
 
 
