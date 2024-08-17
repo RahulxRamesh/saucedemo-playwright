@@ -76,6 +76,21 @@ test.describe('SauceDemo - Login Page', () => {
         await expect(page.locator('[data-test="title"]')).toContainText("Checkout: Your Information")
       });
 
+      await test.step('missing checkout info - first name', async () => {
+        await CartPage.fillCheckoutInfo("", "Custard", "70007") 
+        await expect(page.locator('[data-test="error"]')).toContainText("Error: First Name is required")
+      });
+
+      await test.step('missing checkout info - last name', async () => {
+        await CartPage.fillCheckoutInfo("Andy", "", "70007") 
+        await expect(page.locator('[data-test="error"]')).toContainText("Error: Last Name is required")
+      });
+
+      await test.step('missing checkout info - zipcode', async () => {
+        await CartPage.fillCheckoutInfo("Andy", "Custard", "") 
+        await expect(page.locator('[data-test="error"]')).toContainText("Error: Postal Code is required")
+      });
+
       await test.step('filling checkout info', async () => {
         await CartPage.fillCheckoutInfo("Andy", "Custard", "70007") 
       });

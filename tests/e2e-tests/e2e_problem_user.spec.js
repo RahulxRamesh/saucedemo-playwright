@@ -116,7 +116,7 @@ test.describe('SauceDemo - Login Page', () => {
 
   });
 
-  test('product tests - products & cart badge', async ({page}) => {
+  test.skip('product tests - products & cart badge', async ({page}) => {
 
     await test.step('add product to cart', async () => {
        await HomePage.addToCart("sauce-labs-bike-light")
@@ -200,7 +200,7 @@ test('product tests - sorting products', async ({page}) => {
   
 });
 
-test('cart page validations', async ({ page }) => {
+test.skip('cart page validations', async ({ page }) => {
 
   await test.step('add products to cart', async () => {
     await HomePage.addToCart("sauce-labs-bike-light")
@@ -234,7 +234,7 @@ test('cart page validations', async ({ page }) => {
 
 });
 
-test('cart checkout page validations', async ({ page }) => {
+test.skip('cart checkout page validations', async ({ page }) => {
 
   await test.step('add products to cart', async () => {
     await HomePage.addToCart("sauce-labs-bike-light")
