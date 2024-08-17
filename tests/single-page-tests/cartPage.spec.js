@@ -82,25 +82,11 @@ test.describe('SauceDemo - Login Page', () => {
 
       await test.step('validating checkout:overview page', async () => {
         
-
-        //TODO make a function to encapsulate and return all of this info, and takes an array of products in
-        var bikePrice = testData.bike_light_price
-        var fleecePrice = testData.fleece_price
-    
-        var totalBeforeTax = parseFloat(bikePrice) + parseFloat(fleecePrice)
-
-        var taxConstant =  1.08002667
-        var tax = (totalBeforeTax * taxConstant) - totalBeforeTax
-        var totalAfterTax = totalBeforeTax + tax
-
-        var finalNumBeforeTax = totalBeforeTax.toFixed(2)
-        var finalTax = tax.toFixed(2)
-        var finalTotalAfterTax = totalAfterTax.toFixed(2)
-
-        //console.log("hey this is the decimal: "+ finalNumBeforeTax + " and the tax: "+ finalTax) //TODO handle the 15 decimal places after and the "4"
-        await expect(page.locator('[data-test="subtotal-label"]')).toContainText(finalNumBeforeTax)
-        await expect(page.locator('[data-test="tax-label"]')).toContainText(finalTax)
-        await expect(page.locator('[data-test="total-label"]')).toContainText(finalTotalAfterTax)
+        let finalValues = await CartPage.calculateCheckoutValues([testData.bike_light_price, testData.fleece_price])
+        console.log("ARRAY: "+ finalValues)
+        await expect(page.locator('[data-test="subtotal-label"]')).toContainText(finalValues[0])
+        await expect(page.locator('[data-test="tax-label"]')).toContainText(finalValues[1])
+        await expect(page.locator('[data-test="total-label"]')).toContainText(finalValues[2])
 
       });
 

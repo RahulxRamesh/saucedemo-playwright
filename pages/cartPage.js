@@ -15,6 +15,32 @@ class cartPage{
         await this.page.click("#continue");
     }
 
+
+    async calculateCheckoutValues(productArr){
+
+        let finalValues = []
+        let totalBeforeTax = 0.00;
+
+        for(let i=0; i<productArr.length; i++){
+
+            let var1 = parseFloat(totalBeforeTax)
+            let var2 = parseFloat(productArr[i])
+
+            totalBeforeTax = var1 + var2
+        }
+
+        var taxConstant =  1.08002667
+        var tax = (totalBeforeTax * taxConstant) - totalBeforeTax
+        var totalAfterTax = totalBeforeTax + tax
+
+        var finalNumBeforeTax = totalBeforeTax.toFixed(2)
+        var finalTax = tax.toFixed(2)
+        var finalTotalAfterTax = totalAfterTax.toFixed(2)
+        
+        finalValues.push(finalNumBeforeTax, finalTax, finalTotalAfterTax)
+        return finalValues
+    }
+
 }
 
 module.exports = cartPage;

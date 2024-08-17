@@ -3,6 +3,9 @@
     "fleece_price": "49.99",
     "backpack_price": "29.99",
     "order_thanks": "Thank you for your order!",
-    "locked_out_user_error": "Epic sadface: Sorry, this user has been locked out."
+    "locked_out_user_error": "Epic sadface: Sorry, this user has been locked out.",
+    "username_required": "Epic sadface: Username is required",
+    "password_required": "Epic sadface: Password is required",
+    "user_and_pass_mismatch": "Epic sadface: Username and password do not match any user in this service"
 
 }
